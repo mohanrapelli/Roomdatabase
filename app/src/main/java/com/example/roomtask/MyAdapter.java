@@ -61,11 +61,13 @@ import java.util.ArrayList;
         }
 
 
+
         public void setContacts(ArrayList<Login> contacts) {
             this.contacts = contacts;
             notifyDataSetChanged();
 
         }
+
 
 
         class ContactViewHolder extends RecyclerView.ViewHolder {

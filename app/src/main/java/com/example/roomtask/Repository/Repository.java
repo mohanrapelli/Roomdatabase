@@ -19,6 +19,7 @@ public class Repository {
 
  private final Logindao logindao;
  private final ExecutorService service;
+Login login;
  private final Handler handler;
 
     public Repository(Application application) {
@@ -46,4 +47,7 @@ public class Repository {
     public LiveData<List<Login>> getlogindata2(){
         return logindao.getlogindata();
     }
+
+
+
 }

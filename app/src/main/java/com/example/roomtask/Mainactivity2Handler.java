@@ -24,12 +24,11 @@ public class Mainactivity2Handler {
         } else {
             Intent i = new Intent(context, MainActivity.class);
 
-            Login c = new Login(
-                    login.getName(),
-                    login.getEmail()
-            );
+            Login c = new Login(login.getName(), login.getEmail());
+
             loginviewmodel.addLogindetail(c);
 
+            Toast.makeText(context, "Item inserted", Toast.LENGTH_SHORT).show();
             context.startActivity(i);
 
         }

@@ -14,6 +14,7 @@ import java.util.List;
 @Dao
 public interface Logindao {
     @Insert
+
     void insert(Login login);
 
     @Delete
@@ -23,6 +24,9 @@ public interface Logindao {
     void update(Login login);
 
 
+
     @Query("SELECT * FROM login_table")
     LiveData<List<Login>> getlogindata();
+
+
 }

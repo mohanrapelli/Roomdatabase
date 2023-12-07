@@ -2,6 +2,7 @@ package com.example.roomtask;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
@@ -9,6 +10,7 @@ import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
@@ -28,6 +30,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerviewInter
     private ActivityMainBinding mainBinding;
     private MainactivityCilckHandler handlers;
     Loginviewmodel viewmodel;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,7 +66,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerviewInter
                         for (Login c : contacts) {
                             contactsArrayList.add(c);
                         }
-
+                        myAdapter.setContacts((ArrayList<Login>) contacts);
                         myAdapter.notifyDataSetChanged();
 
                     }
@@ -94,6 +97,9 @@ public class MainActivity extends AppCompatActivity implements RecyclerviewInter
 
                 viewmodel.deleteLogindetail(c);
                 Snackbar snackbar=Snackbar.make(mainBinding.getRoot(),"Item Deleted",Snackbar.LENGTH_LONG);
+                snackbar.setActionTextColor(ContextCompat.getColor(getApplicationContext(),R.color.white1));
+                snackbar.setBackgroundTint(ContextCompat.getColor(getApplicationContext(),R.color.black));
+                snackbar.setTextColor(ContextCompat.getColor(getApplicationContext(),R.color.white1));
                 snackbar.setAction("UNDO", new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -113,6 +119,12 @@ public class MainActivity extends AppCompatActivity implements RecyclerviewInter
 
     @Override
     public void OnItemClick(int position) {
+        Intent intent=new Intent(MainActivity.this, MainActivity3.class);
+        intent.putExtra("name",contactsArrayList.get(position).getName());
+        intent.putExtra("id",contactsArrayList.get(position).getId());
+        intent.putExtra("email",contactsArrayList.get(position).getEmail());
+
+        startActivity(intent);
 
     }
 }

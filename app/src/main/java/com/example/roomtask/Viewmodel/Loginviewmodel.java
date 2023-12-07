@@ -16,6 +16,7 @@ private Repository repository;
     private LiveData<List<Login>> allLogin;
 
 
+
     public Loginviewmodel(@NonNull Application application) {
         super(application);
         this.repository=new Repository(application);
@@ -25,6 +26,7 @@ private Repository repository;
         return allLogin;
 
     }
+
    public void addLogindetail(Login login){
         repository.addLogin(login);
 
