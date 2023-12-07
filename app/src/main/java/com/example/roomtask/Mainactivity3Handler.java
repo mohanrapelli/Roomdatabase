@@ -39,6 +39,7 @@ public class Mainactivity3Handler {
             if (loginviewmodel != null) {
                 loginviewmodel.updateLogindetail(login);
                 loginviewmodel.addLogindetail(login);
+                Toast.makeText(context, "Item Updated", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(view.getContext(), MainActivity.class);
                 context.startActivity(intent);
             } else {
