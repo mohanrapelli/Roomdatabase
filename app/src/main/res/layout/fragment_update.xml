@@ -8,9 +8,7 @@
         <variable
             name="contact"
             type="com.example.roomtask.model.Login" />
-        <variable
-            name="onclickitem"
-            type="com.example.roomtask.Mainactivity3Handler" />
+
 
     </data>
     <RelativeLayout
@@ -18,8 +16,8 @@
         android:layout_height="match_parent"
         android:gravity="center"
         android:background="@drawable/grad"
-        tools:context=".MainActivity3">
-        >
+        tools:context=".UpdateFragment">
+
 
 
 
@@ -55,9 +53,9 @@
             android:layout_height="wrap_content"
             android:backgroundTint="#C2185B"
             android:layout_marginTop="48dp"
-            android:layout_marginLeft="70dp"
+            android:layout_marginLeft="30dp"
+            android:paddingLeft="35dp"
             android:text="Cancel"
-            android:onClick="@{onclickitem::onCloseclicked}"
             android:textColor="@color/white"
             />
         <Button
@@ -70,8 +68,6 @@
             android:layout_below="@id/emailEDT1"
             android:backgroundTint="#3112C5"
             android:layout_marginTop="48dp"
-            android:layout_marginLeft="10dp"
-            android:onClick="@{onclickitem::oneditbutton}"
             android:text="Update"
             android:textColor="@color/white"
             />

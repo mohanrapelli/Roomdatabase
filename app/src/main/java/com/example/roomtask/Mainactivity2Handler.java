@@ -19,7 +19,7 @@ public class Mainactivity2Handler {
         this.loginviewmodel = loginviewmodel;
     }
     public void onBtnClicked(View view) {
-        if (login.getName() == null || login.getEmail() == null) {
+        if (login.getName().isEmpty()|| login.getEmail().isEmpty()) {
             Toast.makeText(context, "Please fill the Above fields ", Toast.LENGTH_SHORT).show();
         } else {
             Intent i = new Intent(context, MainActivity.class);

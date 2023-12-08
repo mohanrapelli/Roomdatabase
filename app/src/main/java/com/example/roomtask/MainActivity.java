@@ -10,9 +10,11 @@ import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.FragmentManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import com.example.roomtask.Database.Logindatabase;
 import com.example.roomtask.databinding.ActivityMainBinding;
@@ -119,12 +121,17 @@ public class MainActivity extends AppCompatActivity implements RecyclerviewInter
 
     @Override
     public void OnItemClick(int position) {
-        Intent intent=new Intent(MainActivity.this, MainActivity3.class);
-        intent.putExtra("name",contactsArrayList.get(position).getName());
-        intent.putExtra("id",contactsArrayList.get(position).getId());
-        intent.putExtra("email",contactsArrayList.get(position).getEmail());
+        UpdateFragment updateFragment=new UpdateFragment();
 
-        startActivity(intent);
+       Bundle bundle=new Bundle();
+       bundle.putString("name",contactsArrayList.get(position).getName());
+       bundle.putInt("id",contactsArrayList.get(position).getId());
+        bundle.putString("email",contactsArrayList.get(position).getEmail());
+updateFragment.setArguments(bundle);
+
+
+        updateFragment.show(getSupportFragmentManager(), "UpdateFragment");
+
 
     }
 }
